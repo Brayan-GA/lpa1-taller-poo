@@ -4,7 +4,7 @@ Este taller está diseñado para introducir a los estudiantes en los conceptos d
 
 ## Estudiante
 
-Cuenta: [@tu_cuenta_github]
+Cuenta: [https://github.com/Brayan-GA]
 
 ## Objetivos
 

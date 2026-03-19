@@ -5,9 +5,9 @@ Este es el punto de partida de nuestra jerarquía de clases.
 
 # TODO: Importar ABC y abstractmethod del módulo abc
 # Estos son necesarios para crear clases y métodos abstractos
+from abc import ABC, abstractmethod
 
-
-class Mueble:
+class Mueble(ABC):
     """
     Clase abstracta base para todos los muebles.
     
@@ -18,7 +18,7 @@ class Mueble:
     - Abstracción: Define una interfaz común sin implementación específica
     - Encapsulación: Usa atributos privados con getters/setters
     """
-    
+    @abstractmethod
     def __init__(self, nombre: str, material: str, color: str, precio_base: float):
         """
         Constructor de la clase Mueble.
