@@ -3,36 +3,19 @@ Clase base abstracta Mueble
 Este es el punto de partida de nuestra jerarquía de clases.
 """
 
-# TODO: Importar ABC y abstractmethod del módulo abc
-# Estos son necesarios para crear clases y métodos abstractos
+
 from abc import ABC, abstractmethod
 
 class Mueble(ABC):
-    """
-    Clase abstracta base para todos los muebles.
-    
-    Esta clase define la estructura común que deben tener todos los muebles
-    de nuestra tienda, pero no puede ser instanciada directamente.
-    
-    Conceptos OOP aplicados:
-    - Abstracción: Define una interfaz común sin implementación específica
-    - Encapsulación: Usa atributos privados con getters/setters
-    """
+
     @abstractmethod
     def __init__(self, nombre: str, material: str, color: str, precio_base: float):
-        """
-        Constructor de la clase Mueble.
-        
-        Args:
-            nombre: Nombre del mueble
-            material: Material principal (madera, metal, plástico, etc.)
-            color: Color del mueble
-            precio_base: Precio base antes de aplicar modificadores
-        """
-        # TODO: Inicializar los atributos privados usando underscore
-        # Ejemplo: self._nombre = nombre
-        # Esto implementa encapsulación, ocultando los datos internos
-        pass
+
+        self._nombre = nombre
+        self._material = material
+        self._color = color
+        self._precio_base = precio_base
+    pass
     
     # TODO: Implementar las propiedades (getters) para cada atributo
     # Usa el decorador @property para crear getters
@@ -41,7 +24,6 @@ class Mueble(ABC):
     # def nombre(self) -> str:
     #     """Getter para el nombre del mueble."""
     #     return self._nombre
-    
     # TODO: Implementar los setters para cada atributo donde sea necesario
     # Usa el decorador @nombre.setter para crear setters
     # Incluye validaciones básicas (ej: precio no puede ser negativo)
