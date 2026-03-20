@@ -17,23 +17,48 @@ class Mueble(ABC):
         self._precio_base = precio_base
     pass
     
-    # TODO: Implementar las propiedades (getters) para cada atributo
-    # Usa el decorador @property para crear getters
-    # Ejemplo:
-    # @property
-    # def nombre(self) -> str:
-    #     """Getter para el nombre del mueble."""
-    #     return self._nombre
-    # TODO: Implementar los setters para cada atributo donde sea necesario
-    # Usa el decorador @nombre.setter para crear setters
-    # Incluye validaciones básicas (ej: precio no puede ser negativo)
-    # Ejemplo:
-    # @nombre.setter
-    # def nombre(self, value: str) -> None:
-    #     """Setter para el nombre con validación."""
-    #     if not value or not value.strip():
-    #         raise ValueError("El nombre no puede estar vacío")
-    #     self._nombre = value.strip()
+    
+    @property
+    def nombre(self) -> str:
+        return self._nombre
+    
+    @nombre.setter
+    def nombre(self, value: str) -> None:
+        if not isinstance(value, str):
+            raise TypeError("El nombre debe ser una cadena de texto")
+        self._nombre = value
+
+    @property
+    def material(self) -> str:
+        return self._material
+    
+    @material.setter
+    def material(self, value: str):
+        if not isinstance(value, str):
+            raise TypeError("El material debe ser una cadena de texto")
+        self._material = value
+
+    @property
+    def color(self) -> str:
+        return self._color
+    
+    @color.setter
+    def color(self, value: str):    
+        if not isinstance(value, str):
+            raise TypeError("El color debe ser una cadena de texto")
+        self._color = value
+
+    @property
+    def precio_base(self) -> float:
+        return self._precio_base
+    
+    @precio_base.setter
+    def precio_base(self, value: float):
+        if not isinstance(value, (int, float)):
+            raise TypeError("El precio base debe ser un número")
+        if value < 0:
+            raise ValueError("El precio base no puede ser negativo")
+        self._precio_base = value
     
     # TODO: Implementar método abstracto calcular_precio()
     # Este método debe ser implementado por todas las clases hijas
