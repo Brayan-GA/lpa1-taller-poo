@@ -17,7 +17,7 @@ class Mueble(ABC):
         self._precio_base = precio_base
     pass
     
-    
+
     @property
     def nombre(self) -> str:
         return self._nombre
@@ -60,31 +60,29 @@ class Mueble(ABC):
             raise ValueError("El precio base no puede ser negativo")
         self._precio_base = value
     
-    # TODO: Implementar método abstracto calcular_precio()
-    # Este método debe ser implementado por todas las clases hijas
-    # Usa el decorador @abstractmethod
-    # def calcular_precio(self) -> float:
-    #     """
-    #     Calcula el precio final del mueble.
-    #     Este método debe ser implementado por cada clase concreta.
-    #     
-    #     Returns:
-    #         float: Precio final calculado
-    #     """
-    #     pass
     
-    # TODO: Implementar método abstracto obtener_descripcion()
-    # Este método debe retornar una descripción detallada del mueble
-    # def obtener_descripcion(self) -> str:
-    #     """
-    #     Obtiene una descripción detallada del mueble.
-    #     Este método debe ser implementado por cada clase concreta.
-    #     
-    #     Returns:
-    #         str: Descripción completa del mueble
-    #     """
-    #     pass
+    @abstractmethod
+    def calcular_precio(self) -> float:
+        """
+        Calcula el precio final del mueble.
+        Este método debe ser implementado por cada clase concreta.
+        
+        Returns:
+            float: Precio final calculado
+        """
+        pass
     
+    @abstractmethod
+    def obtener_descripcion(self) -> str:
+        """
+        Obtiene una descripción detallada del mueble.
+        Este método debe ser implementado por cada clase concreta.
+        
+        Returns:
+            str: Descripción completa del mueble
+        """
+        pass
+
     def __str__(self) -> str:
         """
         Representación en cadena del mueble.
