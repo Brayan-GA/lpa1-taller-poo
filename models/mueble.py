@@ -88,15 +88,13 @@ class Mueble(ABC):
         Representación en cadena del mueble.
         Este método concreto puede ser usado por todas las clases hijas.
         """
-        # TODO: Implementar usando las propiedades
-        # return f"{self.nombre} de {self.material} en color {self.color}"
+        return f"{self.nombre} de {self.material} en color {self.color}"
         pass
     
     def __repr__(self) -> str:
         """
         Representación técnica del mueble para debugging.
         """
-        # TODO: Implementar una representación técnica
-        # return f"Mueble(nombre='{self.nombre}', material='{self.material}', color='{self.color}', precio_base={self.precio_base})"
+        return f"Mueble(nombre='{self.nombre}', material='{self.material}', color='{self.color}', precio_base={self.precio_base})"
         pass
 
