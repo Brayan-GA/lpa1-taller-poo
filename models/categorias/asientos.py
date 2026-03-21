@@ -35,19 +35,45 @@ class Asiento(Mueble, ABC):
         self._material_tapizado = material_tapizado
         pass
     
-    # TODO: Implementar propiedades (getters) para los nuevos atributos
-    # @property
-    # def capacidad_personas(self) -> int:
-    #     """Getter para la capacidad de personas."""
-    #     return self._capacidad_personas
+
+    @property
+    def capacidad_personas(self) -> int:
+        """Getter para la capacidad de personas."""
+        return self._capacidad_personas
     
-    # TODO: Implementar setters con validaciones apropiadas
-    # @capacidad_personas.setter
-    # def capacidad_personas(self, value: int) -> None:
-    #     """Setter para capacidad con validación."""
-    #     if value <= 0:
-    #         raise ValueError("La capacidad debe ser mayor a 0")
-    #     self._capacidad_personas = value
+    @capacidad_personas.setter
+    def capacidad_personas(self, value: int) -> None:
+        """Setter para capacidad con validación."""
+        if value <= 0:
+            raise ValueError("La capacidad debe ser mayor a 0")
+        self._capacidad_personas = value
+
+
+    @property
+    def tiene_respaldo(self) -> bool:
+        """Getter para saber si tiene respaldo."""
+        return self._tiene_respaldo
+    
+    @tiene_respaldo.setter
+    def tiene_respaldo(self, value: bool) -> None:
+        """Setter para el respaldo con validación."""
+        if not isinstance(value, bool):
+            raise ValueError("El valor debe ser un booleano")
+        self._tiene_respaldo = value
+
+
+    @property
+    def material_tapizado(self) -> str:
+        """Getter para el material del tapizado."""
+        return self._material_tapizado
+    
+    @material_tapizado.setter
+    def material_tapizado(self, value: str) -> None:
+        """Setter para el material del tapizado con validación."""
+        if value is not None and not isinstance(value, str):
+            raise ValueError("El material del tapizado debe ser una cadena de texto o None")
+        self._material_tapizado = value
+    
     
     def calcular_factor_comodidad(self) -> float:
         """
