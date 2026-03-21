@@ -3,9 +3,9 @@ Clase abstracta para muebles de asiento.
 Esta clase agrupa las características comunes de sillas, sillones y sofás.
 """
 from models.mueble import Mueble
-from abc import ABC, abstractmethod
+from abc import ABC
 
-class Asiento:
+class Asiento(Mueble, ABC):
     """
     Clase abstracta para todos los muebles donde las personas se sientan.
     
@@ -29,10 +29,10 @@ class Asiento:
             material_tapizado: Material del tapizado (opcional)
             Otros argumentos heredados de Mueble
         """
-        # TODO: Llamar al constructor de la clase padre usando super()
-        
-        # TODO: Inicializar los atributos específicos de asiento
-        # Usar encapsulación con atributos privados
+        super().__init__(nombre, material, color, precio_base)
+        self._capacidad_personas = capacidad_personas
+        self._tiene_respaldo = tiene_respaldo
+        self._material_tapizado = material_tapizado
         pass
     
     # TODO: Implementar propiedades (getters) para los nuevos atributos
