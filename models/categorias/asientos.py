@@ -82,27 +82,21 @@ class Asiento(Mueble, ABC):
         
         Returns:
             float: Factor multiplicador para el precio (1.0 = neutral)
-        """
-        # TODO: Implementar lógica de cálculo de comodidad
-        # Considerar factores como:
-        # - Si tiene respaldo (+0.1)
-        # - Material del tapizado (cuero +0.2, tela +0.1)
-        # - Capacidad de personas (más personas = más cómodo)
+        """   
+            
+        factor = 1.0
         
-        # TODO: Agregar lógica aquí
-        # if self.tiene_respaldo:
-        #     factor += 0.1
-        # 
-        # if self.material_tapizado:
-        #     if self.material_tapizado.lower() == "cuero":
-        #         factor += 0.2
-        #     elif self.material_tapizado.lower() == "tela":
-        #         factor += 0.1
+        if self.tiene_respaldo:
+            factor += 0.1
+
         if self.material_tapizado:
             if self.material_tapizado.lower() == "cuero":
                 factor += 0.2
             elif self.material_tapizado.lower() == "tela":
                 factor += 0.1
+
+        if self.capacidad_personas > 1:
+            factor += 0.05 * (self.capacidad_personas - 1)
         
         return factor
     
