@@ -89,8 +89,6 @@ class Asiento(Mueble, ABC):
         # - Material del tapizado (cuero +0.2, tela +0.1)
         # - Capacidad de personas (más personas = más cómodo)
         
-        factor = 1.0
-        
         # TODO: Agregar lógica aquí
         # if self.tiene_respaldo:
         #     factor += 0.1
@@ -100,6 +98,11 @@ class Asiento(Mueble, ABC):
         #         factor += 0.2
         #     elif self.material_tapizado.lower() == "tela":
         #         factor += 0.1
+        if self.material_tapizado:
+            if self.material_tapizado.lower() == "cuero":
+                factor += 0.2
+            elif self.material_tapizado.lower() == "tela":
+                factor += 0.1
         
         return factor
     
