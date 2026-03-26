@@ -3,7 +3,7 @@ Clase abstracta para muebles de asiento.
 Esta clase agrupa las características comunes de sillas, sillones y sofás.
 """
 from models.mueble import Mueble
-from abc import ABC
+from abc import ABC, abstractmethod
 
 class Asiento(Mueble, ABC):
     """
@@ -108,17 +108,20 @@ class Asiento(Mueble, ABC):
         Returns:
             str: Información detallada del asiento
         """
-        # TODO: Implementar retornando información del asiento
-        # info = f"Capacidad: {self.capacidad_personas} personas"
-        # info += f", Respaldo: {'Sí' if self.tiene_respaldo else 'No'}"
-        # if self.material_tapizado:
-        #     info += f", Tapizado: {self.material_tapizado}"
-        # return info
+
+        info = f"Capacidad: {self.capacidad_personas} personas, "
+        info += f", Respaldo: {'Sí' if self.tiene_respaldo else 'No'}"
+        if self.material_tapizado:
+            info += f", Tapizado: {self.material_tapizado}"
+        return info
         pass
     
-    # TODO: Mantener el método calcular_precio como abstracto
-    # Las clases concretas deben implementar su propio cálculo
+
+    @abstractmethod
+    def calcular_precio(self) -> float:
+        pass
     
-    # TODO: Mantener el método obtener_descripcion como abstracto
-    # Cada tipo de asiento tendrá su propia descripción
+    @abstractmethod
+    def obtener_descripcion(self) -> str:
+        pass
 
