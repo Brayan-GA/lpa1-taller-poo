@@ -9,7 +9,7 @@ class Superficie(Mueble, ABC):
     def __init__(self, nombre: str, material: str, color: str, precio_base: float,
                  largo: float, ancho: float, altura: float):
         super().__init__(nombre, material, color, precio_base)
-        self._largo = largo
+        self._largo = largo 
         self._ancho = ancho
         self._altura = altura
     
@@ -51,5 +51,13 @@ class Superficie(Mueble, ABC):
         if value <= 0:
             raise ValueError("La altura debe ser mayor a 0")
         self._altura = value
+
+    @abstractmethod
+    def calcular_precio(self) -> float:
+        pass
+
+    @abstractmethod
+    def obtener_descripcion(self) -> str:
+        pass
 
         
