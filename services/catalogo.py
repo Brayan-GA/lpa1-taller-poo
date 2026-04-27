@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional, Union, Callable
+from typing import List, Dict, Union
 from models.mueble import Mueble
 from models.composicion.comedor import Comedor
 

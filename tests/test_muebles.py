@@ -76,8 +76,8 @@ class TestSilla:
         assert "altura" in resultado.lower()
 
     def test_validaciones_setter(self):
-        with pytest.raises(TypeError):
-            self.silla_basica.nombre = 123
+        with pytest.raises(ValueError):
+            self.silla_basica.nombre = ""
 
         with pytest.raises(ValueError):
             self.silla_basica.precio_base = -100

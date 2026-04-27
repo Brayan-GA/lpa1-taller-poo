@@ -42,10 +42,23 @@ class Sillon(Asiento):
         """
         Calcula el precio del sillón basado en su material y características.
         """
-        precio = self._precio_base
+        precio = self.precio_base
         if self._tiene_ruedas:
             precio += 50
         if self._altura_regulable:
             precio += 100
         return precio
+    
+    def obtener_descripcion(self) -> str:
+        """
+        Obtiene la descripción del sillón.
+        """
+        descripcion = f"Sillón {self.nombre} de {self.material}, color {self.color}"
+        if self.material_tapizado:
+            descripcion += f", tapizado en {self.material_tapizado}"
+        if self.altura_regulable:
+            descripcion += ", con altura regulable"
+        if self.tiene_ruedas:
+            descripcion += ", con ruedas"
+        return descripcion
     

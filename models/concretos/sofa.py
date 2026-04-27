@@ -5,7 +5,7 @@ from models.categorias.asientos import Asiento
 
 class Sofa(Asiento):
 
-    def __init___(self, nombre: str, material: str, color: str, precio_base: float,
+    def __init__(self, nombre: str, material: str, color: str, precio_base: float,
                  capacidad_personas: int, tiene_respaldo: bool = True,
                  material_tapizado: str = None):
         
