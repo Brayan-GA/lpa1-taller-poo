@@ -2,14 +2,18 @@
 Interfaz de usuario usando Rich para crear un menú interactivo y atractivo.
 """
 
-# TODO: Importar las librerías necesarias
-from rich.console import Console
-from typing import List, Optional
 import time
+from typing import List
 
-from ..services.tienda import TiendaMuebles
-from ..models.mueble import Mueble
-# TODO: Importar los servicios y modelos
+from rich.console import Console
+from rich.panel import Panel
+from rich.prompt import Prompt, IntPrompt, Confirm
+from rich.table import Table
+from rich.text import Text
+
+from models.composicion.comedor import Comedor
+from models.mueble import Mueble
+from services.tienda import TiendaMuebles
 
 
 class MenuTienda:
@@ -44,9 +48,8 @@ class MenuTienda:
     def mostrar_catalogo_completo(self):
         """Muestra todos los muebles disponibles en una tabla."""
 
-        # Implementar visualización del catálogo
-        muebles = self.tienda._inventario  # Acceso directo para el ejemplo
-        
+        muebles = self.tienda.catalogo.muebles
+
         if not muebles:
             self.console.print("[yellow]No hay muebles en el inventario.[/yellow]")
             return
@@ -154,7 +157,7 @@ class MenuTienda:
     def mostrar_comedores(self):
         """Muestra todos los comedores disponibles."""
 
-        comedores = self.tienda._comedores
+        comedores = self.tienda.catalogo.filtrar_por_tipo(Comedor)
         
         if not comedores:
             self.console.print("[yellow]No hay comedores disponibles.[/yellow]")
@@ -172,7 +175,7 @@ class MenuTienda:
     def realizar_venta_interactiva(self):
         """Interfaz interactiva para realizar ventas."""
 
-        muebles = self.tienda._inventario
+        muebles = [m for m in self.tienda.catalogo.muebles if not isinstance(m, Comedor)]
         
         if not muebles:
             self.console.print("[red]No hay muebles disponibles para venta.[/red]")
