@@ -111,10 +111,16 @@ class Silla(Asiento):
         Returns:
             str: Mensaje del resultado de la operación
         """
-        # TODO: Implementar lógica de regulación
         if not self.altura_regulable:
             return "Esta silla no tiene altura regulable."
-        pass
+
+        if not isinstance(nueva_altura, (int, float)):
+            raise TypeError("La altura debe ser un número")
+
+        if nueva_altura <= 0:
+            raise ValueError("La altura debe ser mayor a 0")
+
+        return f"Altura ajustada a {nueva_altura} cm"
     
     def es_silla_oficina(self) -> bool:
         """
